@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="248" height="64" viewBox="0 0 248 64" role="img" aria-labelledby="title desc">
+  <title id="title">Juang Cafe</title>
+  <desc id="desc">Temporary Juang Cafe logo with a cup and a J-shaped handle.</desc>
+  <rect width="64" height="64" rx="18" fill="#006241"/>
+  <path d="M18 27h27v11c0 8-6 14-14 14s-13-6-13-14V27Z" fill="#F2F0EB"/>
+  <path d="M45 31h3a8 8 0 0 1 0 16h-6" fill="none" stroke="#D4E9E2" stroke-width="4" stroke-linecap="round"/>
+  <path d="M28 12c-4 4 4 6 0 10M38 10c-4 4 4 6 0 11" fill="none" stroke="#D4E9E2" stroke-width="3" stroke-linecap="round"/>
+  <path d="M31 30v10c0 4-2 6-6 6" fill="none" stroke="#006241" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="78" y="31" fill="#1E3932" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="-.4">JUANG</text>
+  <text x="78" y="50" fill="#00754A" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="3.5">CAFE</text>
+</svg>

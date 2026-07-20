@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Juang Group Website
 
-## Getting Started
+Official company profile for Juang Group and its initial business ecosystem: Juang Cafe, Juang Ice Cream, and Juang Books. The current release is static and intentionally database-free.
 
-First, run the development server:
+## Technology Stack
+
+Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, React Server Components, and Lucide React.
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+`next start` reads the `PORT` environment variable supplied by the hosting environment.
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Copy `.env.example` to `.env.local` and set:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-## Deploy on Vercel
+Use the final production URL in deployment so sitemap, robots, and metadata URLs resolve correctly.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/` — routes, layouts, metadata, sitemap, robots, and global styles
+- `components/` — shared navigation, footer, cards, buttons, founder visual, and under-development UI
+- `data/` — structured TypeScript content designed to be replaceable by API data
+- `public/` — static assets
+
+## Updating Website Content
+
+Edit `data/site.ts` for navigation, business units, values, and contact information. Edit `data/cafe.ts` for Juang Cafe concept content. Longer narrative copy currently lives in each route file for clarity.
+
+## Replacing Images
+
+The current site uses original editorial illustrations under `public/images/` for the founder journey, Juang Cafe, Juang Ice Cream, and Juang Books. The founder illustration is intentionally symbolic and does not claim to be Justin’s portrait. When an approved portrait is available, place it at `public/images/founder/justin.webp`, update `components/ui.tsx`, and preserve meaningful alt text. Future approved Juang Cafe photography should live under `public/images/juang-cafe/`. The existing `app/favicon.ico` is a starter placeholder and should be replaced with an approved Juang Group mark.
+
+## Design System
+
+The implementation follows `design.md`: warm cream and ceramic surfaces, role-specific green tones, pill controls, 12px cards, tight typography, restrained layered shadows, and dark-green feature bands. Manrope is used as the permitted open-source substitute for the proprietary reference typeface.
+
+## Hostinger Deployment
+
+Hostinger dashboard wording can change, so adapt these steps to the available Node.js App interface:
+
+1. Upload or clone the repository.
+2. Select a Node.js version supported by the installed Next.js version.
+3. Set install command to `npm install`.
+4. Set build command to `npm run build`.
+5. Set start command to `npm run start`.
+6. Add `NEXT_PUBLIC_SITE_URL=https://your-domain.com`.
+7. Connect the domain to the Node.js application and restart after deployment.
+
+This project uses normal Node.js output, not static export, so future server rendering and API/database work remain possible.
+
+## Future Database Integration
+
+The arrays and typed objects in `data/` are the initial content source. They can later be replaced by repository functions that read MySQL or an external API while keeping page and component props stable. Add validation and a server-only data layer before introducing an ORM or credentials; no database package or connection is included now.

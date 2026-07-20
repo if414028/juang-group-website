@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="248" height="64" viewBox="0 0 248 64" role="img" aria-labelledby="title desc">
+  <title id="title">Juang Group</title>
+  <desc id="desc">Temporary Juang Group logo with a connected JG monogram.</desc>
+  <rect width="64" height="64" rx="32" fill="#1E3932"/>
+  <path d="M22 17v20.5C22 44 26 48 32 48s10-4 10-10.5V31" fill="none" stroke="#D4E9E2" stroke-width="5" stroke-linecap="round"/>
+  <path d="M45 21.5A15 15 0 1 0 47 43V33h-9" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="22" cy="17" r="3" fill="#FFFFFF"/>
+  <text x="78" y="31" fill="#1E3932" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="-.4">JUANG</text>
+  <text x="78" y="50" fill="#006241" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="3.2">GROUP</text>
+</svg>

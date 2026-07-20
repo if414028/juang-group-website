@@ -1,0 +1,2 @@
+import { ButtonLink } from "@/components/ui";
+export default function NotFound() { return <section className="not-found section"><div className="container"><p className="eyebrow">404 · Page not found</p><h1>This path is not part of the Juang story—yet.</h1><p className="lead">Return to the Juang Group homepage or explore our featured concept.</p><div className="actions"><ButtonLink href="/">Return Home</ButtonLink><ButtonLink href="/juang-cafe" variant="outline">Explore Juang Cafe</ButtonLink></div></div></section>; }
