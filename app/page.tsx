@@ -69,7 +69,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">Featured Business · Juang Cafe</p>
             <h2>A cafe brand built around inclusion.</h2>
-            <p className="lead">Founded by Justin, Juang Cafe is growing across Jakarta and Indonesia with a defining mission: to create welcoming hospitality experiences while opening meaningful employment opportunities for people with Down syndrome, God willing.</p>
+            <p className="lead">Founded by Justin, Juang Cafe is growing across Jakarta and Indonesia with a defining mission: to create welcoming hospitality experiences while opening meaningful employment opportunities for people with Down syndrome.</p>
             <ButtonLink href="/juang-cafe">Explore the Full Concept</ButtonLink>
           </div>
           <figure className="feature-visual"><Image src="/images/juang-cafe/community-cafe.webp" alt="Editorial illustration of Juang Cafe as an open, welcoming and inclusive community space" fill sizes="(max-width: 900px) 100vw, 46vw" /><figcaption><span>J</span><p>Inclusive by purpose.<br />Growing with people.</p></figcaption></figure>
