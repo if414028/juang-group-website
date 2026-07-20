@@ -11,6 +11,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: [{ url: "/brand/official/juang-group-logo.svg", type: "image/svg+xml" }],
+    shortcut: "/brand/official/juang-group-logo.svg",
+    apple: "/brand/official/juang-group-logo.svg",
+  },
   title: { default: "Juang Group | African–Indonesian Lifestyle & Entertainment", template: "%s | Juang Group" },
   description: "Founded and chaired by Ikenna Justin Ogidi, known as Justin Juang, Juang Group operates across hospitality, entertainment, consumer products, trading, and investment in Indonesia and Africa.",
   openGraph: { type: "website", siteName: "Juang Group", title: "Juang Group | African–Indonesian Lifestyle & Entertainment", description: "Building recognizable hospitality, lifestyle, and consumer brands across Indonesia and Africa." },
