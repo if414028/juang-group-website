@@ -13,6 +13,26 @@ export const menuGroups = [
   { title: "Dessert & Ice Cream", items: ["Ice cream", "Pastries", "Light desserts", "Future Juang Ice Cream collaboration"] },
 ];
 
+export const featuredMenu = [
+  { name: "African Meat Pie", image: "/images/juang-cafe/menu/studio/african-meat-pie.webp", position: "50% 50%" },
+  { name: "Shawarmas", image: "/images/juang-cafe/menu/studio/shawarmas.webp", position: "50% 50%" },
+  { name: "African Coconut Rice", image: "/images/juang-cafe/menu/studio/african-coconut-rice.webp", position: "50% 50%" },
+  { name: "African Jollof Rice", image: "/images/juang-cafe/menu/studio/african-jollof-rice.webp", position: "50% 50%" },
+  { name: "African Fried Rice", image: "/images/juang-cafe/menu/studio/african-fried-rice.webp", position: "50% 50%" },
+  { name: "Burger", image: "/images/juang-cafe/menu/studio/burger.webp", position: "50% 50%" },
+  { name: "Martabak", image: "/images/juang-cafe/menu/studio/martabak.webp", position: "50% 50%" },
+  { name: "Spaghetti", image: "/images/juang-cafe/menu/studio/spaghetti.webp", position: "50% 50%" },
+];
+
+export const beverageMenu = [
+  { name: "Blue Ocean", description: "Lemon water, soda, blue lagoon syrup, basil seeds, and mint leaves.", image: "/images/juang-cafe/beverages/blue-ocean.webp" },
+  { name: "Strawberry Squash Mocha", description: "Strawberry, syrup, sugar-free soda water, and edible glitter.", image: "/images/juang-cafe/beverages/strawberry-squash-mocha.webp" },
+  { name: "Yakult", description: "Yakult, water, mocha syrup, and lime squash.", image: "/images/juang-cafe/beverages/yakult.webp" },
+  { name: "Watermelon Juice", description: "Real orange blended with fresh watermelon juice.", image: "/images/juang-cafe/beverages/watermelon-juice.webp" },
+  { name: "Taro Mocha", description: "Mocha powder, creamy taro milk, fresh milk, and taro powder.", image: "/images/juang-cafe/beverages/taro-mocha.webp" },
+  { name: "Coffee Butterscotch", description: "Butterscotch cream powder, butterscotch syrup, fresh milk, and espresso.", image: "/images/juang-cafe/beverages/coffee-butterscotch.webp" },
+];
+
 export const targetMarkets = [
   { title: "University Students", items: ["Study space", "Affordable meals", "Wi-Fi", "Group assignments", "Campus community events"] },
   { title: "Young Professionals", items: ["Remote work", "Informal meetings", "After-office gathering", "Comfortable workspace"] },
