@@ -204,5 +204,5 @@ main{isolation:isolate}
 .footer-brand{width:190px;height:190px;padding:0;background:url("/brand/official/juang-group-logo.svg") center/contain no-repeat}
 .footer-brand>span,.footer-brand>strong{visibility:hidden}
 .footer-bottom{justify-content:center;align-items:center;text-align:center}.footer-bottom a{color:var(--mint);font-weight:700;text-decoration:underline;text-underline-offset:3px}.footer-bottom a:hover{color:#fff}
-.cafe-hero-inner>div:first-child:before{content:"";display:block;width:180px;height:180px;margin-bottom:20px;background:url("/brand/official/juang-cafe-logo.svg") left center/contain no-repeat}
+.cafe-hero-inner>div:first-child:before{content:"";display:block;width:180px;height:180px;margin-bottom:20px;background:url("/brand/official/yeshua-cafe-logo.webp") left center/contain no-repeat}
 @media(max-width:600px){.navbar .brand{height:44px;padding-left:49px;background-size:42px 42px}.navbar .brand>strong{font-size:.92rem}.cafe-hero-inner>div:first-child:before{width:150px;height:150px;margin-bottom:16px}}

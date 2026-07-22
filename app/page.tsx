@@ -16,7 +16,7 @@ export default function Home() {
             <p className="lead">Juang Group is an African–Indonesian lifestyle and entertainment group with businesses spanning hospitality, dining, consumer products, trading, and investment. From Indonesia to Africa, the group continues to expand through brands designed for quality, relevance, and lasting impact.</p>
             <div className="actions">
               <ButtonLink href="/about">Discover Our Story</ButtonLink>
-              <ButtonLink href="/juang-cafe" variant="outline">Explore Juang Cafe</ButtonLink>
+              <ButtonLink href="/yeshua-cafe" variant="outline">Explore Yeshua Cafe</ButtonLink>
             </div>
           </div>
           <FounderVisual />
@@ -67,17 +67,17 @@ export default function Home() {
       <section className="section surface-white">
         <div className="container feature">
           <div>
-            <p className="eyebrow">Featured Business · Juang Cafe</p>
+            <p className="eyebrow">Featured Business · Yeshua Cafe</p>
             <h2>A cafe brand built around inclusion.</h2>
-            <p className="lead">Founded by Justin, Juang Cafe is growing across Jakarta and Indonesia with a defining mission: to create welcoming hospitality experiences while opening meaningful employment opportunities for people with Down syndrome.</p>
-            <ButtonLink href="/juang-cafe">Explore the Full Concept</ButtonLink>
+            <p className="lead">Founded by Justin, Yeshua Cafe is growing across Jakarta and Indonesia with a defining mission: to create welcoming hospitality experiences while opening meaningful employment opportunities for people with Down syndrome.</p>
+            <ButtonLink href="/yeshua-cafe">Explore the Full Concept</ButtonLink>
           </div>
-          <figure className="feature-visual"><Image src="/images/juang-cafe/community-cafe.webp" alt="Editorial illustration of Juang Cafe as an open, welcoming and inclusive community space" fill sizes="(max-width: 900px) 100vw, 46vw" /><figcaption><span>J</span><p>Inclusive by purpose.<br />Growing with people.</p></figcaption></figure>
+          <figure className="feature-visual"><Image src="/images/juang-cafe/community-cafe.webp" alt="Editorial illustration of Yeshua Cafe as an open, welcoming and inclusive community space" fill sizes="(max-width: 900px) 100vw, 46vw" /><figcaption><span>Y</span><p>Inclusive by purpose.<br />Growing with people.</p></figcaption></figure>
         </div>
       </section>
 
       <section className="section closing">
-        <div className="container closing-inner"><div><p className="eyebrow">Growing across industries</p><h2>Building Recognizable Brands Across Indonesia and Africa.</h2></div><div className="actions"><ButtonLink href="/juang-cafe" variant="light">Explore Juang Cafe</ButtonLink><ButtonLink href="/contact" variant="light-outline">Connect With Us</ButtonLink></div></div>
+        <div className="container closing-inner"><div><p className="eyebrow">Growing across industries</p><h2>Building Recognizable Brands Across Indonesia and Africa.</h2></div><div className="actions"><ButtonLink href="/yeshua-cafe" variant="light">Explore Yeshua Cafe</ButtonLink><ButtonLink href="/contact" variant="light-outline">Connect With Us</ButtonLink></div></div>
       </section>
     </>
   );

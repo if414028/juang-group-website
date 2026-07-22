@@ -1,6 +1,6 @@
 # Juang Group Website
 
-Official company profile for Juang Group and its initial business ecosystem: Juang Cafe, Juang Ice Cream, and Juang Books. The current release is static and intentionally database-free.
+Official company profile for Juang Group and its initial business ecosystem: Yeshua Cafe, Juang Ice Cream, and Juang Books. The current release is static and intentionally database-free.
 
 ## Technology Stack
 
@@ -43,11 +43,11 @@ Use the final production URL in deployment so sitemap, robots, and metadata URLs
 
 ## Updating Website Content
 
-Edit `data/site.ts` for navigation, business units, values, and contact information. Edit `data/cafe.ts` for Juang Cafe concept content. Longer narrative copy currently lives in each route file for clarity.
+Edit `data/site.ts` for navigation, business units, values, and contact information. Edit `data/cafe.ts` for Yeshua Cafe concept content. Longer narrative copy currently lives in each route file for clarity.
 
 ## Replacing Images
 
-The current site uses original editorial illustrations under `public/images/` for the founder journey, Juang Cafe, Juang Ice Cream, and Juang Books. The founder illustration is intentionally symbolic and does not claim to be Justin’s portrait. When an approved portrait is available, place it at `public/images/founder/justin.webp`, update `components/ui.tsx`, and preserve meaningful alt text. Future approved Juang Cafe photography should live under `public/images/juang-cafe/`. The existing `app/favicon.ico` is a starter placeholder and should be replaced with an approved Juang Group mark.
+The current site uses original editorial illustrations under `public/images/` for the founder journey, Yeshua Cafe, Juang Ice Cream, and Juang Books. The founder illustration is intentionally symbolic and does not claim to be Justin’s portrait. When an approved portrait is available, place it at `public/images/founder/justin.webp`, update `components/ui.tsx`, and preserve meaningful alt text. Future approved Yeshua Cafe photography should live under `public/images/juang-cafe/`. The existing `app/favicon.ico` is a starter placeholder and should be replaced with an approved Juang Group mark.
 
 ## Design System
 

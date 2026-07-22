@@ -16,5 +16,5 @@ export function FounderVisual() {
 }
 
 export function UnitCard({ unit }: { unit: BusinessUnit }) {
-  return <article className="unit-card"><div className="unit-top"><span className={`badge ${unit.status}`}>{unit.status === "featured" ? "Featured Concept" : "In Development"}</span><span className="unit-mark">{unit.mark}</span></div><h3>{unit.name}</h3><p>{unit.shortDescription}</p><Link className="text-link" href={unit.href}>{unit.status === "featured" ? "Explore Juang Cafe" : "View Concept"} <ArrowUpRight size={18} aria-hidden /></Link></article>;
+  return <article className="unit-card"><div className="unit-top"><span className={`badge ${unit.status}`}>{unit.status === "featured" ? "Featured Concept" : "In Development"}</span><span className="unit-mark">{unit.mark}</span></div><h3>{unit.name}</h3><p>{unit.shortDescription}</p><Link className="text-link" href={unit.href}>{unit.status === "featured" ? "Explore Yeshua Cafe" : "View Concept"} <ArrowUpRight size={18} aria-hidden /></Link></article>;
 }

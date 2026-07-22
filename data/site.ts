@@ -9,12 +9,12 @@ export interface BusinessUnit {
 
 export const navigation = [
   { label: "Home", href: "/" }, { label: "About", href: "/about" },
-  { label: "Juang Cafe", href: "/juang-cafe" }, { label: "Juang Ice Cream", href: "/juang-ice-cream" },
+  { label: "Yeshua Cafe", href: "/yeshua-cafe" }, { label: "Juang Ice Cream", href: "/juang-ice-cream" },
   { label: "Juang Books", href: "/juang-books" }, { label: "Contact", href: "/contact" },
 ];
 
 export const businessUnits: BusinessUnit[] = [
-  { name: "Juang Cafe", slug: "juang-cafe", status: "featured", shortDescription: "Justin Juang’s inclusive hospitality brand, growing across Jakarta and Indonesia while creating meaningful roles for people with Down syndrome.", href: "/juang-cafe", mark: "01" },
+  { name: "Yeshua Cafe", slug: "yeshua-cafe", status: "featured", shortDescription: "Justin Juang’s inclusive hospitality brand, growing across Jakarta and Indonesia while creating meaningful roles for people with Down syndrome.", href: "/yeshua-cafe", mark: "01" },
   { name: "Juang Ice Cream", slug: "juang-ice-cream", status: "in-development", shortDescription: "Part of the group’s growing food and beverage portfolio, inspired by joyful flavors and shared experiences.", href: "/juang-ice-cream", mark: "02" },
   { name: "Juang Books", slug: "juang-books", status: "in-development", shortDescription: "A future lifestyle concept focused on ideas, stories, creativity, and meaningful learning.", href: "/juang-books", mark: "03" },
 ];
