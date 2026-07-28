@@ -1,6 +1,11 @@
 import { deleteAdminSession } from "@/lib/admin-auth";
 
-export async function POST(request: Request) {
+export async function POST() {
   await deleteAdminSession();
-  return Response.redirect(new URL("/admin/login", request.url), 303);
+  return new Response(null, {
+    status: 303,
+    headers: {
+      Location: "/admin/login",
+    },
+  });
 }
