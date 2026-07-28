@@ -1,5 +1,4 @@
-const recipientEmail =
-  process.env.CONTACT_TO_EMAIL || "justinikenna08@gmail.com";
+import { createContactMessage } from "@/lib/messages";
 
 type ContactPayload = {
   name?: unknown;
@@ -9,21 +8,43 @@ type ContactPayload = {
   website?: unknown;
 };
 
+type ContactAttempt = { count: number; resetAt: number };
+
+declare global {
+  var juangContactAttempts: Map<string, ContactAttempt> | undefined;
+}
+
+const attempts =
+  globalThis.juangContactAttempts ||
+  (globalThis.juangContactAttempts = new Map<string, ContactAttempt>());
+
 function cleanText(value: unknown, maxLength: number) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 }
 
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function getClientIp(request: Request) {
+  return (
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    request.headers.get("x-real-ip") ||
+    null
+  );
+}
+
+function isRateLimited(key: string) {
+  const now = Date.now();
+  const current = attempts.get(key);
+  if (!current || current.resetAt < now) {
+    attempts.set(key, { count: 1, resetAt: now + 60 * 60 * 1000 });
+    return false;
+  }
+
+  if (current.count >= 10) return true;
+  current.count += 1;
+  return false;
 }
 
 export async function POST(request: Request) {
@@ -63,69 +84,33 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.CONTACT_FROM_EMAIL;
-
-  if (!apiKey || !fromEmail) {
-    console.error(
-      "Contact form is missing RESEND_API_KEY or CONTACT_FROM_EMAIL.",
-    );
+  const ipAddress = getClientIp(request);
+  const rateLimitKey = ipAddress || email;
+  if (isRateLimited(rateLimitKey)) {
     return Response.json(
-      {
-        message:
-          "The message service is not configured yet. Please try again later.",
-      },
-      { status: 503 },
+      { message: "Too many messages. Please try again later." },
+      { status: 429 },
     );
   }
 
-  const safeName = escapeHtml(name);
-  const safeEmail = escapeHtml(email);
-  const safeSubject = escapeHtml(subject);
-  const safeMessage = escapeHtml(message).replaceAll("\n", "<br />");
-
   try {
-    const emailResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [recipientEmail],
-        reply_to: email,
-        subject: `[Juang Group Website] ${subject}`,
-        html: `
-          <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;color:#1e3932">
-            <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00754a">New website enquiry</p>
-            <h1 style="font-size:28px;line-height:1.2">${safeSubject}</h1>
-            <p><strong>From:</strong> ${safeName}</p>
-            <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
-            <div style="margin-top:24px;padding:24px;background:#f2f0eb;border-left:4px solid #00754a;border-radius:8px;line-height:1.7">${safeMessage}</div>
-          </div>
-        `,
-        text: `New website enquiry\n\nFrom: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`,
-      }),
+    await createContactMessage({
+      name,
+      email,
+      subject,
+      message,
+      ipAddress,
+      userAgent: cleanText(request.headers.get("user-agent"), 500) || null,
     });
-
-    if (!emailResponse.ok) {
-      const providerError = await emailResponse.text();
-      console.error("Resend contact email failed:", providerError);
-      return Response.json(
-        { message: "Your message could not be sent. Please try again." },
-        { status: 502 },
-      );
-    }
 
     return Response.json({
-      message: "Thank you. Your message has been sent successfully.",
+      message: "Thank you. Your message has been saved successfully.",
     });
   } catch (error) {
-    console.error("Contact email request failed:", error);
+    console.error("Saving contact message failed:", error);
     return Response.json(
-      { message: "Your message could not be sent. Please try again." },
-      { status: 502 },
+      { message: "Your message could not be saved. Please try again." },
+      { status: 503 },
     );
   }
 }

@@ -39,7 +39,7 @@ export function ContactForm() {
       form.reset();
       setStatus({
         type: "success",
-        message: t("Thank you. Your message has been sent successfully."),
+        message: t("Thank you. Your message has been saved successfully."),
       });
     } catch (error) {
       setStatus({

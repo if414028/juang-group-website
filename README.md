@@ -1,10 +1,10 @@
 # Juang Group Website
 
-Official company profile for Juang Group and its initial business ecosystem: Yeshua Cafe, Juang Ice Cream, and Juang Books. The current release is static and intentionally database-free.
+Official company profile for Juang Group and its initial business ecosystem: Yeshua Cafe, Juang Ice Cream, and Juang Books. Contact messages are stored in MySQL and managed through a private admin inbox.
 
 ## Technology Stack
 
-Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, React Server Components, and Lucide React.
+Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, MySQL, React Server Components, and Lucide React.
 
 ## Local Development
 
@@ -30,20 +30,45 @@ Copy `.env.example` to `.env.local` and set:
 
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-RESEND_API_KEY=re_xxxxxxxxx
-CONTACT_FROM_EMAIL=Juang Group Website <website@your-verified-domain.com>
-CONTACT_TO_EMAIL=justinikenna08@gmail.com
+DATABASE_URL=mysql://database_user:database_password@database_host:3306/database_name
+SESSION_SECRET=replace-with-at-least-32-random-characters
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=replace-with-a-strong-password
+ADMIN_NAME=Website Admin
 ```
 
 Use the final production URL in deployment so sitemap, robots, and metadata URLs resolve correctly.
-The contact form sends email through Resend. Verify the sender domain in Resend,
-then set `CONTACT_FROM_EMAIL` to an address on that domain. Keep
-`RESEND_API_KEY` server-side and never prefix it with `NEXT_PUBLIC_`.
+`DATABASE_URL` can be replaced with the individual `DB_HOST`, `DB_PORT`,
+`DB_USER`, `DB_PASSWORD`, and `DB_NAME` variables shown in `.env.example`.
+Keep database credentials and `SESSION_SECRET` server-side; never prefix them
+with `NEXT_PUBLIC_`.
+
+## Database and Admin Inbox
+
+After creating an empty MySQL database and filling `.env.local`, create the
+tables and first admin account:
+
+```bash
+npm run db:setup
+npm run db:seed
+```
+
+The `ADMIN_PASSWORD` must contain at least 12 characters. After the account is
+created, remove `ADMIN_PASSWORD` from the production environment because the
+application never needs the plaintext password at runtime.
+
+Open `/admin/login` to access the inbox. The dashboard supports unread/read
+status, search, filtering, direct email replies, and permanent deletion. Public
+contact submissions are validated, protected by a honeypot and basic rate
+limiting, and stored in the `contact_messages` table.
 
 ## Project Structure
 
 - `app/` — routes, layouts, metadata, sitemap, robots, and global styles
 - `components/` — shared navigation, footer, cards, buttons, founder visual, and under-development UI
+- `database/` — repeatable MySQL table schema
+- `lib/` — server-only database, authentication, and message repositories
+- `scripts/` — database setup and initial admin creation
 - `data/` — structured TypeScript content designed to be replaceable by API data
 - `public/` — static assets
 
@@ -68,11 +93,12 @@ Hostinger dashboard wording can change, so adapt these steps to the available No
 3. Set install command to `npm install`.
 4. Set build command to `npm run build`.
 5. Set start command to `npm run start`.
-6. Add `NEXT_PUBLIC_SITE_URL=https://your-domain.com`.
-7. Connect the domain to the Node.js application and restart after deployment.
+6. Create a MySQL database and user from hPanel.
+7. Add `NEXT_PUBLIC_SITE_URL`, the MySQL variables, and `SESSION_SECRET` in
+   Hostinger's environment variable settings.
+8. Run `npm run db:setup` and `npm run admin:create` once using Hostinger's
+   terminal or a local connection that can reach the production database.
+9. Remove `ADMIN_PASSWORD` from the production environment, connect the domain,
+   and restart the application.
 
 This project uses normal Node.js output, not static export, so future server rendering and API/database work remain possible.
-
-## Future Database Integration
-
-The arrays and typed objects in `data/` are the initial content source. They can later be replaced by repository functions that read MySQL or an external API while keeping page and component props stable. Add validation and a server-only data layer before introducing an ORM or credentials; no database package or connection is included now.
