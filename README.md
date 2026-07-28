@@ -30,9 +30,15 @@ Copy `.env.example` to `.env.local` and set:
 
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+RESEND_API_KEY=re_xxxxxxxxx
+CONTACT_FROM_EMAIL=Juang Group Website <website@your-verified-domain.com>
+CONTACT_TO_EMAIL=justinikenna08@gmail.com
 ```
 
 Use the final production URL in deployment so sitemap, robots, and metadata URLs resolve correctly.
+The contact form sends email through Resend. Verify the sender domain in Resend,
+then set `CONTACT_FROM_EMAIL` to an address on that domain. Keep
+`RESEND_API_KEY` server-side and never prefix it with `NEXT_PUBLIC_`.
 
 ## Project Structure
 

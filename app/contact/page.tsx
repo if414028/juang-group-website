@@ -1,5 +1,58 @@
 import type { Metadata } from "next";
-import { Mail } from "lucide-react";
-import { ButtonLink } from "@/components/ui";
-export const metadata: Metadata = { title: "Contact", description: "Connect with Juang Group about business, partnership, or investment opportunities." };
-export default function ContactPage() { return <section className="contact-page section"><div className="container contact-card"><div><p className="eyebrow">Contact Juang Group</p><h1>Start a thoughtful conversation.</h1><p className="lead">For business, strategic partnership, or investment enquiries, Juang Group welcomes aligned conversations.</p><p>Official contact details are being prepared and will be available soon. No message form is shown until a secure delivery channel is connected.</p><ButtonLink href="/yeshua-cafe">Explore Yeshua Cafe</ButtonLink></div><div className="contact-mark" aria-hidden><Mail /><span>Details<br />coming soon</span></div></div></section>; }
+import { Mail, MessageSquareText, Send } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Send Juang Group a message about business, partnership, or investment opportunities.",
+};
+
+export default function ContactPage() {
+  return (
+    <section className="contact-page section">
+      <div className="container contact-layout">
+        <div className="contact-intro">
+          <p className="eyebrow">Contact Juang Group</p>
+          <h1>Start a thoughtful conversation.</h1>
+          <p className="lead">
+            For business, strategic partnership, or investment enquiries, Juang
+            Group welcomes aligned conversations.
+          </p>
+
+          <div className="contact-points" aria-label="Contact information">
+            <div>
+              <span aria-hidden>
+                <MessageSquareText />
+              </span>
+              <p>
+                <strong>Send a direct message</strong>
+                <small>Your message goes directly to our team.</small>
+              </p>
+            </div>
+            <div>
+              <span aria-hidden>
+                <Mail />
+              </span>
+              <p>
+                <strong>Personal response</strong>
+                <small>We will reply to the email address you provide.</small>
+              </p>
+            </div>
+            <div>
+              <span aria-hidden>
+                <Send />
+              </span>
+              <p>
+                <strong>Clear and confidential</strong>
+                <small>Share only the information relevant to your enquiry.</small>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <ContactForm />
+      </div>
+    </section>
+  );
+}
