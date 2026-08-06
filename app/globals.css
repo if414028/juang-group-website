@@ -13,6 +13,31 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 :focus-visible{outline:3px solid #cba258;outline-offset:4px}
 
+/* Temporary maintenance experience */
+.maintenance-page{position:relative;min-height:100svh;overflow:hidden;display:grid;place-items:center;padding:clamp(24px,5vw,72px);isolation:isolate;background:var(--house);color:var(--white)}
+.maintenance-page:before{content:"";position:absolute;inset:18px;border:1px solid rgba(223,196,157,.22);border-radius:clamp(20px,3vw,38px);pointer-events:none}
+.maintenance-page:after{content:"";position:absolute;inset:0;z-index:-2;opacity:.16;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.28) 1px,transparent 0);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 68%)}
+.maintenance-card{position:relative;z-index:1;width:min(760px,100%);margin:auto;text-align:center;padding:clamp(40px,7vw,76px) clamp(24px,6vw,64px);border:1px solid rgba(223,196,157,.24);border-radius:24px;background:rgba(20,44,38,.78);box-shadow:0 30px 80px rgba(0,0,0,.28);backdrop-filter:blur(18px)}
+.maintenance-brand{width:112px;height:112px;margin:0 auto 28px;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px rgba(203,162,88,.38),0 16px 38px rgba(0,0,0,.3)}
+.maintenance-brand img{width:100%;height:100%;object-fit:cover}
+.maintenance-status{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;color:var(--mint);font-size:.74rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.maintenance-status span{width:8px;height:8px;border-radius:50%;background:#cba258;box-shadow:0 0 0 6px rgba(203,162,88,.12);animation:maintenance-pulse 2.4s ease-in-out infinite}
+.maintenance-card h1{max-width:680px;margin:0 auto 24px;color:var(--white);font-size:clamp(2.45rem,7vw,5rem);font-weight:500;letter-spacing:-.055em;text-wrap:balance}
+.maintenance-card h1 span{display:block;color:#dfc49d}
+.maintenance-lead{max-width:620px;margin:0 auto;color:rgba(255,255,255,.74);font-size:clamp(1.05rem,2vw,1.22rem);line-height:1.75}
+.maintenance-local{max-width:580px;margin:16px auto 0;color:rgba(212,233,226,.7);font-size:.94rem;line-height:1.7}
+.maintenance-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:34px auto;width:min(280px,72%)}
+.maintenance-divider span{height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(203,162,88,.6))}
+.maintenance-divider span:last-child{transform:scaleX(-1)}
+.maintenance-divider i{width:8px;height:8px;border:1px solid #cba258;transform:rotate(45deg)}
+.maintenance-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;color:rgba(255,255,255,.48);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
+.maintenance-footer strong{color:rgba(255,255,255,.82)}
+.maintenance-glow{position:absolute;z-index:-1;width:min(540px,60vw);aspect-ratio:1;border-radius:50%;filter:blur(2px);pointer-events:none}
+.maintenance-glow-left{left:-18%;bottom:-35%;background:radial-gradient(circle,rgba(0,117,74,.36),transparent 68%)}
+.maintenance-glow-right{right:-18%;top:-35%;background:radial-gradient(circle,rgba(203,162,88,.18),transparent 68%)}
+@keyframes maintenance-pulse{0%,100%{opacity:.55;transform:scale(.88)}50%{opacity:1;transform:scale(1.08)}}
+@media(max-width:600px){.maintenance-page{padding:18px}.maintenance-page:before{inset:8px}.maintenance-card{padding:38px 20px;border-radius:18px}.maintenance-brand{width:88px;height:88px;margin-bottom:24px}.maintenance-card h1{font-size:clamp(2.25rem,12vw,3.4rem)}.maintenance-footer{flex-direction:column}}
+
 /* UIPro refinement layer — preserves the design.md palette and geometry. */
 ::selection{background:var(--mint);color:var(--house)}
 html,body{overflow-x:clip}
