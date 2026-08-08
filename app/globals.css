@@ -13,8 +13,8 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 :focus-visible{outline:3px solid #cba258;outline-offset:4px}
 
-/* Temporary maintenance experience */
-.maintenance-page{position:relative;min-height:100svh;overflow:hidden;display:grid;place-items:center;padding:clamp(24px,5vw,72px);isolation:isolate;background:var(--house);color:var(--white)}
+/* Temporary maintenance experience — retained for future activation. */
+.maintenance-page{position:fixed;inset:0;z-index:1000;min-height:100svh;overflow:auto;display:grid;place-items:center;padding:clamp(24px,5vw,72px);isolation:isolate;background:var(--house);color:var(--white)}
 .maintenance-page:before{content:"";position:absolute;inset:18px;border:1px solid rgba(223,196,157,.22);border-radius:clamp(20px,3vw,38px);pointer-events:none}
 .maintenance-page:after{content:"";position:absolute;inset:0;z-index:-2;opacity:.16;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.28) 1px,transparent 0);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 68%)}
 .maintenance-card{position:relative;z-index:1;width:min(760px,100%);margin:auto;text-align:center;padding:clamp(40px,7vw,76px) clamp(24px,6vw,64px);border:1px solid rgba(223,196,157,.24);border-radius:24px;background:rgba(20,44,38,.78);box-shadow:0 30px 80px rgba(0,0,0,.28);backdrop-filter:blur(18px)}
